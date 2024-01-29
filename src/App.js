@@ -18,6 +18,8 @@ const config = createConfig(
   })
 );
 
+// network'e gore nft listelemesini yapcam ama musait oldugunda bak!!!
+
 function App() {
   return (
     <React.Fragment>
