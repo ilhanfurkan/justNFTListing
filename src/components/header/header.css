@@ -1,0 +1,56 @@
+.header {
+  position: fixed;
+  width: 70%;
+  height: 80px;
+  margin-block: 8px;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 100px;
+  border-radius: 12px;
+  border: 4px solid black;
+  box-shadow: -6px 6px black;
+  z-index: 99;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1; /* Arka plan resmi içeriğin altında olacak */
+  background-color: white; /* Arka plan resmi ekleyin */
+  background-size: cover; /* İçeriği tamamen kapla */
+}
+
+/* Diğer stillendirmeleri buraya ekleyebilirsiniz */
+
+.header .networkButton {
+  border: 2px solid black;
+  width: 188px;
+  height: 40px;
+  padding: 0px 12px;
+  border-radius: 8px;
+  background-color: #ffffff !important;
+  font-size: 17px;
+  font-family: "SF Pro Rounded", ui-rounded, "Nunito", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial,
+    sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  box-shadow: -4px 4px black;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+.header .networkButton:hover {
+  background-color: #f4ede7 !important;
+}
+
+.header .networkButton:active {
+  box-shadow: 0px 0px black;
+  transition: 200ms;
+}

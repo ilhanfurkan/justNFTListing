@@ -1,0 +1,44 @@
+// // This script demonstrates access to the NFT API via the Alchemy SDK.
+// import { Network, Alchemy } from "alchemy-sdk";
+
+// // Optional Config object, but defaults to demo api-key and eth-mainnet.
+// const settings = {
+//   apiKey: "GF-tm8sQBaqPYCBOllNtlpygVRaPc__5", // Replace with your Alchemy API Key.
+//   network: Network.MATIC_MAINNET, // Replace with your network.
+// };
+
+// const alchemy = new Alchemy(settings);
+
+// // Print owner's wallet address:
+// const ownerAddr = "0x355b3cA2B5e8eA04e65C41b0EA73a88C4f39AC9a";
+// console.log("fetching NFTs for address:", ownerAddr);
+// console.log("...");
+
+// // Print total NFT count returned in the response:
+// const nftsForOwner = await alchemy.nft.getNftsForOwner(ownerAddr);
+// console.log("number of NFTs found:", nftsForOwner.totalCount);
+// console.log("...");
+
+// // Print contract address and tokenId for each NFT:
+// for (const nft of nftsForOwner.ownedNfts) {
+//   console.log("===");
+//   console.log("contract address:", nft.contract.address);
+//   console.log("token ID:", nft.tokenId);
+// }
+// console.log("===");
+
+// // Fetch metadata for a particular NFT:
+// console.log("fetching metadata for a Crypto Coven NFT...");
+// const response = await alchemy.nft.getNftMetadata(
+//   "0xedebfc5a6cdf85dd114cc93b0a0cc58c5beade19",
+//   "90522"
+// ); // Uncomment this line to see the full api response:
+// // console.log(response);
+
+// // Print some commonly used fields:
+// console.log("NFT name: ", response.title);
+// console.log("token type: ", response.tokenType);
+// console.log("tokenUri: ", response.tokenUri.gateway);
+// console.log("image url: ", response.rawMetadata.image);
+// console.log("time last updated: ", response.timeLastUpdated);
+// console.log("===");

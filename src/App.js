@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+
+import { WagmiConfig, createConfig } from "wagmi";
+import { mainnet, optimism, polygon } from "@wagmi/core/chains";
+import { ConnectKitProvider, getDefaultConfig } from "connectkit";
+import NFTListing from "./components/nftListing";
+import Header from "./components/header";
+import { NetworkProvider } from "./contexts/network";
+
+const alchemyApiKey = "GF-tm8sQBaqPYCBOllNtlpygVRaPc__5";
+
+const config = createConfig(
+  getDefaultConfig({
+    alchemyId: alchemyApiKey,
+    chains: [polygon, mainnet, optimism],
+    appName: "Ello G'ovner",
+  })
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <WagmiConfig config={config}>
+        <NetworkProvider>
+          <ConnectKitProvider
+            theme="retro"
+            options={{
+              language: "tr-TR",
+            }}
+          >
+            <Header />
+            <NFTListing />
+          </ConnectKitProvider>
+        </NetworkProvider>
+      </WagmiConfig>
+    </React.Fragment>
   );
 }
 
